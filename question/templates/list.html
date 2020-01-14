@@ -1,13 +1,14 @@
-<!doctype html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>hello django</title>
-</head>
-<body>
-<h1>hello django</h1>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %} List {% endblock %}
+
+{% block content %}
+<h1>this is List</h1>
+    <h2>Publishers</h2>
+    <ul>
+        {% for publisher in my_favorite_publishers %}
+        <a href="{% url 'detail' publisher.pk %}"><li>{{ publisher.name }}</li></a>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
